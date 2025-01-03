@@ -12,6 +12,29 @@ There are three major providers of energy in town that charge different amounts 
 
 JOI Energy is a new energy company that uses data to ensure customers are able to be on the best price plan for their energy consumption.
 
+
+## Useful commands
+
+### Install dependencies
+
+```
+composer install
+```
+
+### Build & Run the application
+
+```terminal
+$ ./deploy-energy.php
+```
+Above command will start the application on url `http://127.0.0.1:8000`. Can be accessed using `http://localhost:8000` as well.
+
+### Run the tests
+
+```terminal
+$ php artisan test
+```
+
+
 ## API
 
 Below is a list of API endpoints with their respective input and output. Please note that the application needs to be running. For more information about how to run the application, please refer to [run the application](#run-the-application) section below.
@@ -21,7 +44,7 @@ Below is a list of API endpoints with their respective input and output. Please 
 Endpoint
 
 ```
-POST /readings/store
+POST /readings
 ```
 
 Example of body
@@ -60,7 +83,7 @@ Posting readings using CURL
 $ curl \
   -X POST \
   -H "Content-Type: application/json" \
-  "http://localhost:8000/readings/store" \
+  "http://localhost:8000/readings" \
   -d '{"smartMeterId":"smart-meter-0","electricityReadings":[{"time":"2020-11-11T08:00:00.0000000+00:00","reading":0.0503},{"time":"2020-11-12T08:00:00.0000000+00:00","reading":0.0213}]}'
 ```
 
@@ -71,7 +94,7 @@ The above command returns 201 OK and response as "Readings inserted successfully
 Endpoint
 
 ```
-GET /readings/read/<smartMeterId>
+GET /readings/<smartMeterId>
 ```
 
 Parameters
@@ -83,7 +106,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:8000/readings/read/smart-meter-1"
+$ curl "http://localhost:8000/readings/smart-meter-1"
 ```
 
 Example output
@@ -100,7 +123,7 @@ Example output
 Endpoint
 
 ```
-GET /price-plans/compare-all/<smartMeterId>
+GET /price-plan-comparisons/<smartMeterId>
 ```
 
 Parameters
@@ -112,7 +135,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:8000/price-plans/compare-all/smart-meter-1"
+$ curl "http://localhost:8000/price-plan-comparisons/smart-meter-1"
 ```
 
 Example output
@@ -143,7 +166,7 @@ Example output
 Endpoint
 
 ```
-GET /price-plans/recommend/<smartMeterId>[?limit=<limit>]
+GET /price-plan-recommendations/<smartMeterId>[?limit=<limit>]
 ```
 
 Parameters
@@ -156,7 +179,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:8000/price-plans/recommend/smart-meter-1?limit=2"
+$ curl "http://localhost:8000/price-plan-recommendations/smart-meter-1?limit=2"
 ```
 
 Example output
@@ -179,25 +202,4 @@ Tested on:
 
 - Visual Studio Code(with PHP Intelephense & PHPUnit extension)
 - IntelliJ IDEA Ultimate
-
-## Useful commands
-
-### Install dependencies
-
-```
-composer install
-```
-
-### Build & Run the application
-
-```terminal
-$ ./deploy-energy.php
-```
-Above command will start the application on url `http://127.0.0.1:8000`. Can be accessed using `http://localhost:8000` as well.
-
-### Run the tests
-
-```terminal
-$ php artisan test
-```
 
