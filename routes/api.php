@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeterReadingController;
 use App\Http\Controllers\PricePlanComparatorController;
+use App\Http\Controllers\CostController;
 use App\Helpers\ModelHelper;
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Route::get('/readings/{smartMeterId}', [MeterReadingController::class, 'getReadi
 Route::post('/readings', [MeterReadingController::class, 'storeReadings']);
 Route::get('price-plan-recommendations/{smartMeterId}/{limit?}', [PricePlanComparatorController::class, 'recommendCheapestPricePlans']);
 Route::get('price-plan-comparisons/{smartMeterId}', [PricePlanComparatorController::class, 'compareCostForEachPricePlan']);
+Route::get('/costs/{smartMeterId}/weekly', [CostController::class, 'getWeeklyCost']);
