@@ -22,7 +22,7 @@ class SmartMeterFactory extends Factory
     public function definition()
     {
         return [
-            //
+
         ];
     }
 }

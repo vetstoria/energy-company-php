@@ -54,6 +54,13 @@ if (($php_version[0] > 7)) {
                 exit;
             }
         }
+        exec("touch ./database/database.sqlite", $output2, $res2);
+        if ($res2 !== 0) {
+            echo "Error generating sqlite file...\n";
+            exit;
+        }
+        exec("php artisan migrate");
+        exec("php artisan db:seed");
         system("php artisan serve");
     } else {
         echo "'PHP Composer' not found....\n";

@@ -1,17 +1,3 @@
-# Welcome to PowerDale
-
-PowerDale is a small town with around 100 residents. Most houses have a smart meter installed that can save and send information about how much energy a house has used.
-
-There are three major providers of energy in town that charge different amounts for the power they supply.
-
-- _Dr Evil's Dark Energy_
-- _The Green Eco_
-- _Power for Everyone_
-
-## Overview
-
-JOI Energy is a new energy company that uses data to ensure customers are able to be on the best price plan for their energy consumption.
-
 ## Installation pre-requisites
 
 - Install PHP version 8.2 or above
@@ -37,7 +23,6 @@ Above command will start the application on url `http://127.0.0.1:8000`. Can be 
 ```terminal
 $ php artisan test
 ```
-
 
 ## API
 
