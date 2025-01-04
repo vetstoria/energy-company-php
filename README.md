@@ -12,6 +12,10 @@ There are three major providers of energy in town that charge different amounts 
 
 JOI Energy is a new energy company that uses data to ensure customers are able to be on the best price plan for their energy consumption.
 
+## Installation pre-requisites
+
+- Install PHP version 8.2 or above
+- Setup composer on your system
 
 ## Useful commands
 

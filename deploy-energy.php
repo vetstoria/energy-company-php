@@ -34,7 +34,8 @@ function isEnvValueSet($envKey, $fname): bool
 }
 
 $php_version = explode('.', phpversion());
-if (($php_version[0] == 7 && $php_version[1] == 4 && $php_version[2] == 24) || ($php_version[0] == 7 && $php_version[1] == 4 && $php_version[2] > 24) || ($php_version[0] == 7 && $php_version[1] > 4) || ($php_version[0] > 7)) {
+
+if (($php_version[0] > 7)) {
     if (is_executable_available("composer")) {
         echo "Installing Laravel, related packages and setting things up...\n";
         exec("composer install", $output, $res);
