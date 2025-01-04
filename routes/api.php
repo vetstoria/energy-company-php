@@ -24,4 +24,3 @@ Route::get('/readings/{smartMeterId}', [MeterReadingController::class, 'getReadi
 Route::post('/readings', [MeterReadingController::class, 'storeReadings']);
 Route::get('price-plan/{smartMeterId}/recommendations{limit?}', [PricePlanComparatorController::class, 'recommendCheapestPricePlans']);
 Route::get('price-plan/{smartMeterId}/comparisons', [PricePlanComparatorController::class, 'compareCostForEachPricePlan']);
-Route::get('/costs/{smartMeterId}/weekly', [CostController::class, 'getWeeklyCost']);
