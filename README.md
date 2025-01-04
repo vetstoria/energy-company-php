@@ -123,7 +123,7 @@ Example output
 Endpoint
 
 ```
-GET /price-plan-comparisons/<smartMeterId>
+GET /price-plan/<smartMeterId>/comparisons
 ```
 
 Parameters
@@ -135,7 +135,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:8000/price-plan-comparisons/smart-meter-1"
+$ curl "http://localhost:8000/price-plan/smart-meter-1/comparisons"
 ```
 
 Example output
@@ -166,7 +166,7 @@ Example output
 Endpoint
 
 ```
-GET /price-plan-recommendations/<smartMeterId>[?limit=<limit>]
+GET /price-plan/<smartMeterId>/recommendations[?limit=<limit>]
 ```
 
 Parameters
@@ -179,7 +179,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:8000/price-plan-recommendations/smart-meter-1?limit=2"
+$ curl "http://localhost:8000/price-plan/smart-meter-1/recommendations?limit=2"
 ```
 
 Example output

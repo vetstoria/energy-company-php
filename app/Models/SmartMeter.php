@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class SmartMeter extends Model
 {
     use HasFactory;
-
-//    protected $fillable = ['smartMeterId', 'price_plan_id'];
 }
