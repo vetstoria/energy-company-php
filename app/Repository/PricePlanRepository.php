@@ -14,7 +14,7 @@ class PricePlanRepository implements IPricePlanRepository
 
     public function getPricePlans(): array
     {
-        return PricePlan::query()->get(['supplier', 'unitRate'])->toArray();
+        return PricePlan::query()->get(['supplier', 'unit_rate'])->toArray();
     }
 
     public function getCurrentAvailableSupplierIds($smartMeterId): array

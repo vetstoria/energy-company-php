@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         PricePlan::factory()->count(3)
             ->sequence(
-                ['planName' => 'price-plan-0', 'supplier' => 'Dr Evils Dark Energy', 'unitRate' => 10],
-                ['planName' => 'price-plan-1', 'supplier' => 'The Green Eco', 'unitRate' => 20],
-                ['planName' => 'price-plan-2', 'supplier' => 'Power for Everyone', 'unitRate' => 5],
+                ['plan_name' => 'price-plan-0', 'supplier' => 'Dr Evils Dark Energy', 'unit_rate' => 10],
+                ['plan_name' => 'price-plan-1', 'supplier' => 'The Green Eco', 'unit_rate' => 20],
+                ['plan_name' => 'price-plan-2', 'supplier' => 'Power for Everyone', 'unit_rate' => 5],
             )
             ->create();
         SmartMeter::factory()->count(5)

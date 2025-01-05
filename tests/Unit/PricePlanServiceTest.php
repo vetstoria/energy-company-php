@@ -46,7 +46,7 @@ class PricePlanServiceTest extends TestCase
     {
         $pricePlan = [];
         $pricePlan['supplier'] = 'The Green Eco';
-        $pricePlan['unitRate'] = '0.034455';
+        $pricePlan['unit_rate'] = '0.034455';
 
         $expectedReadings = collect([]);
         $this->electricityReadingRepositoryMock->method('getElectricityReadings')->willReturn($expectedReadings);
@@ -71,7 +71,7 @@ class PricePlanServiceTest extends TestCase
     {
         $pricePlan = [];
         $pricePlan['supplier'] = 'The Green Eco';
-        $pricePlan['unitRate'] = '0.034455';
+        $pricePlan['unit_rate'] = '0.034455';
 
         $expectedReadings = collect([['reading' => '0.1212312', 'time' => '2021-10-08 20:19:27']]);
         $this->electricityReadingRepositoryMock->method('getElectricityReadings')->willReturn($expectedReadings);
@@ -90,7 +90,7 @@ class PricePlanServiceTest extends TestCase
     {
         $pricePlan = [];
         $pricePlan['supplier'] = 'The Green Eco';
-        $pricePlan['unitRate'] = '0.034455';
+        $pricePlan['unit_rate'] = '0.034455';
 
         $availableSupplierId = new stdClass();
         $availableSupplierId->smartMeterId = '1';
@@ -118,7 +118,7 @@ class PricePlanServiceTest extends TestCase
     {
         $pricePlan = [];
         $pricePlan['supplier'] = 'The Green Eco';
-        $pricePlan['unitRate'] = '0.034455';
+        $pricePlan['unit_rate'] = '0.034455';
 
         $availableSupplierId = new stdClass();
         $availableSupplierId->smartMeterId = '1';

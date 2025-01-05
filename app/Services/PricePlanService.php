@@ -60,7 +60,7 @@ class PricePlanService
         $average = $this->calculateAverageReading($electricityReadings);
         $timeElapsed = $this->calculateTimeElapsed($electricityReadings);
         $averagedCost = $average / $timeElapsed;
-        return $averagedCost * $pricePlan['unitRate'];
+        return $averagedCost * $pricePlan['unit_rate'];
     }
 
     /**
