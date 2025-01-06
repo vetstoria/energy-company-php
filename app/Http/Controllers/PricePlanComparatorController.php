@@ -17,7 +17,7 @@ class PricePlanComparatorController extends Controller
         $this->pricePlanService = $pricePlanService;
     }
 
-    public function recommendCheapestPricePlans($smartMeterId, Request $request): JsonResponse
+    public function recommendations($smartMeterId, Request $request): JsonResponse
     {
         $limit = $request->query('limit');
 
@@ -39,7 +39,7 @@ class PricePlanComparatorController extends Controller
     /**
      * @throws InvalidMeterIdException
      */
-    public function compareCostForEachPricePlan($smartMeterId): JsonResponse
+    public function comparisons($smartMeterId): JsonResponse
     {
         try{
             $costPricePerPlans = $this->pricePlanService->getCostPlanForAllSuppliersWithCurrentSupplierDetails($smartMeterId);
