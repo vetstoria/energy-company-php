@@ -23,7 +23,6 @@ class PricePlanComparatorController extends Controller
 
         try {
             $recommendedPlans = $this->pricePlanService->getConsumptionCostOfElectricityReadingsForEachPricePlan($smartMeterId);
-
         } catch (InvalidMeterIdException $exception) {
             return response()->json($exception->getMessage());
         }
@@ -52,7 +51,7 @@ class PricePlanComparatorController extends Controller
 
     private function sortPlans($recommendedPlans)
     {
-        $recommendedPlansReading = array_column($recommendedPlans, 'value');
+        $recommendedPlansReading = array_column($recommendedPlans, 'cost');
         array_multisort($recommendedPlansReading, SORT_ASC, $recommendedPlans);
         return $recommendedPlans;
     }

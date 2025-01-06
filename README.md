@@ -130,24 +130,23 @@ $ curl "http://localhost:8000/price-plan/smart-meter-1/comparisons"
 Example output
 
 ```json
-[
-    {
-        "key": "Dr Evil's Dark Energy",
-        "value": 0.4529635476463834
-    },
-    {
-        "key": "The Green Eco",
-        "value": 0.009059270952927669
-    },
-    {
-        "key": "Power for Everyone",
-        "value": 0.004529635476463834
-    },
-    {
-        "Current Supplier": "The Green Eco",
-        "SmartMeterId": "smart-meter-1"
-    }
-]
+{
+    "priceComparisons": [
+        {
+            "supplier": "Dr Evil's Dark Energy",
+            "cost": 0.4529635476463834
+        },
+        {
+            "supplier": "The Green Eco",
+            "cost": 0.009059270952927669
+        },
+        {
+            "supplier": "Power for Everyone",
+            "cost": 0.004529635476463834
+        }
+    ],
+    "currentSupplier": "The Green Eco"
+}
 ```
 
 ### View Recommended Price Plans for Usage
@@ -176,12 +175,12 @@ Example output
 ```json
 [
   {
-    "key": "Power For Everyone",
-    "value": 0.004529635476463834
+    "supplier": "Power For Everyone",
+    "cost": 0.004529635476463834
   },
   {
-    "key": "The Green Eco",
-    "value": 0.009059270952927669
+    "supplier": "The Green Eco",
+    "cost": 0.009059270952927669
   }
 ]
 ```

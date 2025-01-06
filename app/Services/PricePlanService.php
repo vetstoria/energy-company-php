@@ -26,7 +26,7 @@ class PricePlanService
 
         $pricePlans = $this->pricePlanRepository->getPricePlans();
         foreach ($pricePlans as $pricePlan) {
-            $getCostForAllPlans[] = array('key' => $pricePlan['supplier'], 'value' => $this->calculateCost($readings, $pricePlan));
+            $getCostForAllPlans[] = array('supplier' => $pricePlan['supplier'], 'cost' => $this->calculateCost($readings, $pricePlan));
         }
 
         return $getCostForAllPlans;
@@ -43,13 +43,14 @@ class PricePlanService
         $currentSupplierIdForSmartMeterID = [];
         foreach ($currentAvailableSupplierIds as $currentAvailableSupplierId) {
             if ($currentAvailableSupplierId->smartMeterId = $smartMeterId) {
-                $currentSupplierIdForSmartMeterID = ['Current Supplier' => $currentAvailableSupplierId->supplier,
-                    "SmartMeterId" => $currentAvailableSupplierId->smartMeterId];
+                $currentSupplierIdForSmartMeterID = $currentAvailableSupplierId->supplier;
             }
         }
-        array_push($costPricePerPlans, $currentSupplierIdForSmartMeterID);
 
-        return $costPricePerPlans;
+        return [
+            "priceComparisons" => $costPricePerPlans,
+            "currentSupplier" => $currentSupplierIdForSmartMeterID,
+        ];
     }
 
     /**

@@ -126,14 +126,12 @@ class PricePlanServiceTest extends TestCase
 
         $expectedReadings = collect([['reading' => '0.1212312', 'time' => '2021-10-08 20:19:27']]);
         $this->electricityReadingRepositoryMock->method('getElectricityReadings')->willReturn($expectedReadings);
-
-
         $this->pricePlanRepositoryMock->method('getPricePlans')->willReturn(array($pricePlan));
-
         $this->pricePlanRepositoryMock->method('getCurrentAvailableSupplierIds')->willReturn(array($availableSupplierId));
 
         $costPlans = $this->pricePlanService->getCostPlanForAllSuppliersWithCurrentSupplierDetails("smart-meter-1");
         $supplier = end($costPlans);
-        $this->assertEquals("The Green Eco", $supplier['Current Supplier']);
+
+        $this->assertEquals("The Green Eco", $supplier);
     }
 }
