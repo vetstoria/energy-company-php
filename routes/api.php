@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/readings/{smartMeterId}', [MeterReadingController::class, 'getReading']);
 Route::post('/readings', [MeterReadingController::class, 'storeReadings']);
-Route::get('price-plan/{smartMeterId}/recommendations{limit?}', [PricePlanComparatorController::class, 'recommendCheapestPricePlans']);
+Route::get('price-plan/{smartMeterId}/recommendations', [PricePlanComparatorController::class, 'recommendCheapestPricePlans']);
 Route::get('price-plan/{smartMeterId}/comparisons', [PricePlanComparatorController::class, 'compareCostForEachPricePlan']);
