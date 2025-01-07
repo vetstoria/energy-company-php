@@ -7,7 +7,6 @@ use App\Services\PricePlanService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-
 class PricePlanComparatorController extends Controller
 {
     private $pricePlanService;
@@ -40,9 +39,22 @@ class PricePlanComparatorController extends Controller
      */
     public function comparisons($smartMeterId): JsonResponse
     {
-        try{
+        try {
             $costPricePerPlans = $this->pricePlanService->getCostPlanForAllSuppliersWithCurrentSupplierDetails($smartMeterId);
-        }catch(InvalidMeterIdException $exception){
+        } catch (InvalidMeterIdException $exception) {
+            return response()->json($exception->getMessage());
+        }
+        return response()->json($costPricePerPlans);
+    }
+
+    /**
+     * @throws InvalidMeterIdException
+     */
+    public function comparisons2($smartMeterId): JsonResponse
+    {
+        try {
+            $costPricePerPlans = $this->pricePlanService->getCostPlanForAllSuppliersWithCurrentSupplierDetails($smartMeterId);
+        } catch (InvalidMeterIdException $exception) {
             return response()->json($exception->getMessage());
         }
         return response()->json($costPricePerPlans);
